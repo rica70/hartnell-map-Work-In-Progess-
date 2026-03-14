@@ -6,19 +6,95 @@
 //
 
 import SwiftUI
+import MapKit
+import CoreLocation
+
+
 
 struct ContentView: View {
+    // stuct array of each building
+    let buildings = [
+        Building(name: "Parking", coordinate: CLLocationCoordinate2D(latitude: 36.67479965204058, longitude: -121.6673868789855), floor1: nil, floor2: nil, floor3: nil
+                ),
+        Building(name: "N-Merril Hall", coordinate: CLLocationCoordinate2D(
+            latitude: 36.6739748044481, longitude: -121.66697762953319), floor1: nil, floor2: nil, floor3: nil
+        ),
+        Building(name: "S-STEM Building", coordinate: CLLocationCoordinate2D(latitude: 36.67348350633714, longitude: -121.66670413623234), floor1: nil, floor2: nil, floor3 : nil
+                ),
+        Building(name: "D-College administration (NORTH)", coordinate: CLLocationCoordinate2D(latitude: 36.67369970171838, longitude: -121.66506400055484), floor1: "dn-1", floor2: "dn-2", floor3: "dn-3"
+                ),
+        Building(name: "E-College administration (SOUTH)", coordinate: CLLocationCoordinate2D(latitude: 36.673254242000745, longitude: -121.66498208905819), floor1: nil, floor2: nil, floor3: nil
+                ),
+        Building(name: "A-Library/Learning Resource Center", coordinate: CLLocationCoordinate2D(latitude: 36.67508856285571, longitude: -121.66599951058397), floor1: nil, floor2: nil, floor3: nil
+                )
+    ]
+    
+    
+    @State private var selectedBuilding: Building?
+    @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    
+    //basic hartnell colors
+    @State private var redHartnell = Color(red: 116/255, green: 38/255, blue: 65/255)
+    @State private var yellowHartnell = Color(red: 240/255, green: 182/255, blue: 70/255)
+    
+    let manager = CLLocationManager()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            Map() {
+                
+                UserAnnotation();
+                
+                //creates each annotation by iterating over the buildings sructure
+                ForEach(buildings) { building in
+                    Annotation(building.name, coordinate: building.coordinate){
+                        Button {
+                            selectedBuilding = building
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 5)
+                                    .fill(redHartnell)
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.secondary, lineWidth: 5)
+                                    .tint(.black)
+                                
+                                if building.name == "Parking" {
+                                    Image(systemName: "car.fill")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .padding(3)
+                                        .tint(yellowHartnell)
+                                } else {
+                                    Text(String(building.name.prefix(1)))
+                                        .font(.system(size: 14, weight: .bold))
+                                        .padding(3)
+                                        .tint(yellowHartnell)
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .mapStyle(.imagery)
+            .sheet(item: $selectedBuilding) { building in
+                BuildingView(building: building)
+                    .presentationDetents([.medium, .large])
+                    .presentationBackground(.clear)
+                    .presentationDragIndicator(.hidden) 
+            }
+            // request user location
+            .onAppear {
+                manager.requestWhenInUseAuthorization()
+            }
+            
+            
+            }
+            
         }
-        .padding()
     }
-}
+
 
 #Preview {
     ContentView()
 }
+

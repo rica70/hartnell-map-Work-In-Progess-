@@ -1,4 +1,4 @@
-# Hartnell Map
+# (Work in Progress)Hartnell Map
 This app shows Hartnell College’s main campus in Salinas, using mapkit with the locations some academic buildings, 
 student services, and parking lots, to help students and visitors navigate the campus.
 
