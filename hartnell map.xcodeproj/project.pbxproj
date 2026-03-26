@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8E32C4242F74DEBB00D4CF55 /* DFirstFloor.svg in Resources */ = {isa = PBXBuildFile; fileRef = 8E32C4232F74DEBB00D4CF55 /* DFirstFloor.svg */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8E621CF82F2D79D1003283A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E32C4232F74DEBB00D4CF55 /* DFirstFloor.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DFirstFloor.svg; sourceTree = "<group>"; };
 		8E621CEA2F2D79D0003283A5 /* hartnell map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hartnell map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E621CF72F2D79D1003283A5 /* hartnell mapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hartnell mapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E621D012F2D79D1003283A5 /* hartnell mapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hartnell mapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,9 +77,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E32C40B2F74B7F300D4CF55 /* floorplans */ = {
+			isa = PBXGroup;
+			children = (
+				8E32C40C2F74B80900D4CF55 /* d building */,
+			);
+			path = floorplans;
+			sourceTree = "<group>";
+		};
+		8E32C40C2F74B80900D4CF55 /* d building */ = {
+			isa = PBXGroup;
+			children = (
+				8E32C4232F74DEBB00D4CF55 /* DFirstFloor.svg */,
+			);
+			path = "d building";
+			sourceTree = "<group>";
+		};
 		8E621CE12F2D79D0003283A5 = {
 			isa = PBXGroup;
 			children = (
+				8E32C40B2F74B7F300D4CF55 /* floorplans */,
 				8E621CEC2F2D79D0003283A5 /* hartnell map */,
 				8E621CFA2F2D79D1003283A5 /* hartnell mapTests */,
 				8E621D042F2D79D1003283A5 /* hartnell mapUITests */,
@@ -212,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E32C4242F74DEBB00D4CF55 /* DFirstFloor.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

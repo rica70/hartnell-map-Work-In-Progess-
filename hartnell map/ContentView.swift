@@ -12,23 +12,6 @@ import CoreLocation
 
 
 struct ContentView: View {
-    // stuct array of each building
-    let buildings = [
-        Building(name: "Parking", coordinate: CLLocationCoordinate2D(latitude: 36.67479965204058, longitude: -121.6673868789855), floor1: nil, floor2: nil, floor3: nil
-                ),
-        Building(name: "N-Merril Hall", coordinate: CLLocationCoordinate2D(
-            latitude: 36.6739748044481, longitude: -121.66697762953319), floor1: nil, floor2: nil, floor3: nil
-        ),
-        Building(name: "S-STEM Building", coordinate: CLLocationCoordinate2D(latitude: 36.67348350633714, longitude: -121.66670413623234), floor1: nil, floor2: nil, floor3 : nil
-                ),
-        Building(name: "D-College administration (NORTH)", coordinate: CLLocationCoordinate2D(latitude: 36.67369970171838, longitude: -121.66506400055484), floor1: "dn-1", floor2: "dn-2", floor3: "dn-3"
-                ),
-        Building(name: "E-College administration (SOUTH)", coordinate: CLLocationCoordinate2D(latitude: 36.673254242000745, longitude: -121.66498208905819), floor1: nil, floor2: nil, floor3: nil
-                ),
-        Building(name: "A-Library/Learning Resource Center", coordinate: CLLocationCoordinate2D(latitude: 36.67508856285571, longitude: -121.66599951058397), floor1: nil, floor2: nil, floor3: nil
-                )
-    ]
-    
     
     @State private var selectedBuilding: Building?
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
