@@ -10,7 +10,8 @@ Clickable annotation pull up sheet which displays schematic of building.
 ## Sheet Of Building Schematic
 After a annotation is clicked it pulls up this sheet display the schematic with a clikcable button to change to a different floor number. 
 
-<img width="396" height="721" alt="Image" src="https://github.com/user-attachments/assets/7f37f56d-4a5a-4150-9012-734bec26fc55" />
+<img width="379" height="714" alt="Image" src="https://github.com/user-attachments/assets/dbb74f94-6572-497d-9d07-b382a7936378" />
+<img width="374" height="713" alt="Image" src="https://github.com/user-attachments/assets/09d9bfc0-135a-4907-8fd1-98e488efd9be" />
 
 ## User Location
 Ask user for location then displays it to show them on the map.
